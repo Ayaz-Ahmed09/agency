@@ -1,89 +1,127 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDownToLine, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowDownToLine, ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
   {
     number: "01",
-    title: "Nova Smile Clinic",
-    type: "Dental booking portal",
+    title: "Gulf Residence",
+    type: "Completed real estate website",
+    label: "completed project",
     description:
-      "A complete clinic website template with appointment booking, service discovery, doctor profiles, insurance pre-check, and a staff-ready lead intake path.",
-    achieved: ["38% faster booking path", "12 service page system", "CRM-ready patient intake"],
-    image: "/project-templates/nova-smile-clinic.jpg",
-    tags: ["Appointment booking", "Doctor profiles", "Insurance pre-check"],
+      "A polished property website with Arabic-first luxury positioning, cinematic villa imagery, service blocks, and a full-page sales narrative.",
+    features: ["Luxury property story", "Arabic-first layout", "Full-page visual funnel"],
+    image: "/project-templates/ourrealestate-project.jpeg",
+    primaryHref: "/project-templates/ourrealestate-project.jpeg",
+    primaryLabel: "view project",
+    downloadPrimary: false,
+    tags: ["Real estate", "Done project", "Luxury landing"],
   },
   {
     number: "02",
-    title: "Aurelia Home",
-    type: "Luxury ecommerce storefront",
+    title: "Atlas Realty",
+    type: "Free real estate lead funnel",
+    label: "free template",
     description:
-      "A premium home decor storefront template with campaign hero, product collections, cart recovery structure, trust blocks, and clean checkout event planning.",
-    achieved: ["2.1s perceived page flow", "Cart recovery structure", "SEO collection layout"],
-    image: "/project-templates/aurelia-home.jpg",
-    tags: ["Product catalog", "Cart recovery", "Campaign landing"],
+      "Real estate template built around neighborhood discovery, broker routing, and property inquiry capture for agencies and solo brokers.",
+    features: ["Neighborhood sections", "Inquiry CTA path", "Broker lead routing"],
+    image: "/project-templates/atlas-realty.png",
+    primaryHref: "/project-templates/html/atlas-realty.html",
+    primaryLabel: "download code",
+    downloadPrimary: true,
+    tags: ["Real estate", "Lead capture", "Free template"],
   },
   {
     number: "03",
-    title: "FlowOps Console",
-    type: "SaaS operations website",
+    title: "Aurelia Home",
+    type: "Free ecommerce storefront",
+    label: "free template",
     description:
-      "A dark SaaS template built around dashboard previews, onboarding steps, role-based value blocks, pricing conversion, and demo-request capture.",
-    achieved: ["14 UI screens planned", "Auth-ready sections", "Demo request funnel"],
-    image: "/project-templates/flowops-saas.jpg",
-    tags: ["Dashboard preview", "Role onboarding", "Pricing flow"],
+      "Editorial ecommerce template with campaign hero, collection highlights, social proof, and a conversion-ready footer for premium storefronts.",
+    features: ["Collection grid", "Campaign hero", "Checkout CTA path"],
+    image: "/project-templates/aurelia-home.png",
+    primaryHref: "/project-templates/html/aurelia-home.html",
+    primaryLabel: "download code",
+    downloadPrimary: true,
+    tags: ["Ecommerce", "Campaign pages", "Free template"],
   },
   {
     number: "04",
-    title: "Atlas Realty",
-    type: "Property lead funnel",
+    title: "Nova Smile Clinic",
+    type: "Free clinic booking website",
+    label: "free template",
     description:
-      "A real-estate website template with property discovery, location landing pages, lead qualification, broker routing, and WhatsApp handoff moments.",
-    achieved: ["22 geo page framework", "15-minute lead handoff", "Broker routing logic"],
-    image: "/project-templates/atlas-realty.jpg",
-    tags: ["Property search", "Broker routing", "WhatsApp handoff"],
+      "Trust-first service template with booking flow, service cards, provider content, testimonials, and a clear inquiry funnel for real practices.",
+    features: ["Booking-first hero", "Provider proof block", "Consultation CTA path"],
+    image: "/project-templates/nova-smile-clinic.png",
+    primaryHref: "/project-templates/html/nova-smile-clinic.html",
+    primaryLabel: "download code",
+    downloadPrimary: true,
+    tags: ["Clinic", "Booking", "Free template"],
   },
   {
     number: "05",
-    title: "Harbor Legal",
-    type: "Law firm intake website",
+    title: "FlowOps Console",
+    type: "Free SaaS launch page",
+    label: "free template",
     description:
-      "A professional legal services template with practice-area pages, consultation booking, case-fit intake, evidence upload direction, and matter triage copy.",
-    achieved: ["31% more consult intent", "Secure form structure", "Matter triage flow"],
-    image: "/project-templates/harbor-law.jpg",
-    tags: ["Case intake", "Practice pages", "Consultation calendar"],
+      "High-contrast SaaS template with product dashboard preview, feature depth, pricing rationale, and demo capture for software teams.",
+    features: ["Dashboard-led hero", "Pricing section ready", "Demo conversion CTA"],
+    image: "/project-templates/flowops-saas.png",
+    primaryHref: "/project-templates/html/flowops-saas.html",
+    primaryLabel: "download code",
+    downloadPrimary: true,
+    tags: ["SaaS", "Product marketing", "Free template"],
   },
   {
     number: "06",
-    title: "PulseFit Studio",
-    type: "Fitness membership platform",
+    title: "Harbor Legal",
+    type: "Free legal intake website",
+    label: "free template",
     description:
-      "A high-energy fitness studio template with class schedules, coach profiles, membership plans, trial booking, and retention email handoff points.",
-    achieved: ["4 booking flows", "Stripe-ready membership", "Retention email path"],
-    image: "/project-templates/pulsefit-studio.jpg",
-    tags: ["Class booking", "Membership plans", "Coach profiles"],
+      "Refined service template for studios, consultancies, and firms with a strong narrative flow, credibility signals, and contact action.",
+    features: ["Editorial hero", "Process section", "Inquiry and intake path"],
+    image: "/project-templates/harbor-law.png",
+    primaryHref: "/project-templates/html/harbor-law.html",
+    primaryLabel: "download code",
+    downloadPrimary: true,
+    tags: ["Legal", "Intake", "Free template"],
   },
-];
+  {
+    number: "07",
+    title: "PulseFit Studio",
+    type: "Free fitness membership site",
+    label: "free template",
+    description:
+      "Fitness website template with class schedules, membership prompts, coach proof, and a trial funnel for studios that sell recurring plans.",
+    features: ["Class schedule", "Trial funnel", "Membership CTA"],
+    image: "/project-templates/pulsefit-studio.png",
+    primaryHref: "/project-templates/html/pulsefit-studio.html",
+    primaryLabel: "download code",
+    downloadPrimary: true,
+    tags: ["Fitness", "Membership", "Free template"],
+  },
+] as const;
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="relative overflow-hidden bg-[#090505] px-4 py-20 sm:px-6 md:px-8 md:py-28">
-      <div className="pointer-events-none absolute right-[-7rem] top-12 h-[36rem] w-[18rem] rounded-full bg-[linear-gradient(90deg,transparent,rgba(255,85,20,0.18),rgba(255,170,50,0.34),rgba(255,75,16,0.16),transparent)] blur-md" />
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <section id="case-studies" className="relative overflow-hidden bg-prestige-deep px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="pointer-events-none absolute right-[-7rem] top-12 h-[30rem] w-[18rem] rounded-full bg-[linear-gradient(90deg,transparent,rgba(255,85,20,0.16),rgba(255,170,50,0.28),rgba(255,75,16,0.12),transparent)] blur-2xl" />
 
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid gap-8 border-y border-white/10 py-8 md:grid-cols-[1.2fr_0.8fr] md:items-end">
           <div>
-            <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.34em] text-prestige-gold">owned website templates</p>
+            <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.34em] text-prestige-gold">project and template library</p>
             <h2 className="max-w-4xl text-4xl font-semibold leading-[0.92] tracking-[-0.07em] text-prestige-ink text-balance sm:text-5xl md:text-6xl">
-              Six original project designs built to look like sellable client-ready systems.
+              Real project previews and free templates that look ready to sell.
             </h2>
           </div>
           <p className="max-w-lg text-sm leading-7 text-prestige-muted md:justify-self-end">
-            These are Presitgious Tech-owned design directions, not outside references. Each card includes a matching generated template preview, practical outcomes, and a downloadable design image.
+            The old case-study framing is now a practical showcase: one delivered real estate build plus free website templates customers can preview, download, and adapt.
           </p>
         </div>
 
@@ -104,25 +142,25 @@ function ProjectCard({ project, delay = 0 }: { project: (typeof projects)[number
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8%" }}
       transition={{ duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] }}
-      className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#110909]/84 transition duration-300 hover:border-prestige-gold/50"
+      className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-prestige-panel/80 transition duration-300 hover:border-prestige-gold/50"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-black">
         <div className="absolute left-0 right-0 top-0 z-10 flex h-9 items-center gap-2 border-b border-white/10 bg-black/70 px-4 backdrop-blur-md">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b42]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#f2b950]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#56c271]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-prestige-gold" />
+          <span className="h-2.5 w-2.5 rounded-full bg-status-warning" />
+          <span className="h-2.5 w-2.5 rounded-full bg-status-success" />
           <span className="ml-3 min-w-0 truncate font-mono text-[0.58rem] uppercase tracking-[0.18em] text-white/48">
-            {project.title.toLowerCase().replaceAll(" ", "-")}.presitgious.tech
+            {project.title.toLowerCase().replaceAll(" ", "-")}.website.preview
           </span>
         </div>
         <Image
           src={project.image}
-          alt={`${project.title} complete website template preview`}
+          alt={`${project.title} realistic website preview`}
           fill
           sizes="(max-width: 1024px) 92vw, 46vw"
-          className="object-cover object-top opacity-90 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
+          className="object-cover object-top opacity-92 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_48%,rgba(6,3,3,0.82))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(6,3,3,0.82))]" />
       </div>
 
       <div className="p-5 sm:p-7">
@@ -130,9 +168,10 @@ function ProjectCard({ project, delay = 0 }: { project: (typeof projects)[number
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.24em] text-prestige-gold">
             {project.number} / {project.type}
           </p>
-          <Link href="#contact" aria-label={`Start a build like ${project.title}`} className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 text-prestige-muted transition duration-300 hover:border-prestige-gold hover:text-prestige-ink">
-            <ArrowUpRight size={15} />
-          </Link>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-prestige-muted">
+            <Sparkles size={12} />
+            {project.label}
+          </span>
         </div>
 
         <h3 className="mt-8 text-4xl font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-prestige-ink text-balance sm:text-5xl">
@@ -141,7 +180,7 @@ function ProjectCard({ project, delay = 0 }: { project: (typeof projects)[number
         <p className="mt-5 text-sm leading-7 text-prestige-muted">{project.description}</p>
 
         <div className="mt-6 grid gap-2 sm:grid-cols-3">
-          {project.achieved.map((item) => (
+          {project.features.map((item) => (
             <div key={item} className="rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-xs leading-5 text-prestige-ink">
               {item}
             </div>
@@ -158,14 +197,22 @@ function ProjectCard({ project, delay = 0 }: { project: (typeof projects)[number
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a
+            href={project.primaryHref}
+            download={project.downloadPrimary}
+            className="inline-flex items-center gap-2 border border-prestige-gold/35 bg-prestige-gold px-4 py-3 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-prestige-canvas transition duration-300 hover:bg-prestige-ink"
+          >
+            {project.downloadPrimary ? <ArrowDownToLine size={14} /> : <ExternalLink size={14} />}
+            {project.primaryLabel}
+          </a>
+          <a
             href={project.image}
             download
-            className="inline-flex items-center gap-2 border border-prestige-gold/35 bg-prestige-gold px-4 py-3 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#170705] transition duration-300 hover:bg-prestige-ink"
+            className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-3 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-prestige-muted transition duration-300 hover:border-prestige-gold/40 hover:text-prestige-ink"
           >
-            <ArrowDownToLine size={14} />
-            get template
+            download preview
+            <ArrowRight size={13} />
           </a>
-          <Link href="#contact" className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-3 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-prestige-muted transition duration-300 hover:border-prestige-gold/40 hover:text-prestige-ink">
+          <Link href="/contact" className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-3 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-prestige-muted transition duration-300 hover:border-prestige-gold/40 hover:text-prestige-ink">
             scope similar build
             <ExternalLink size={13} />
           </Link>

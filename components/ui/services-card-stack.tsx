@@ -105,7 +105,7 @@ function ServiceCardContent({
           {service.tags.map((tag) => (
             <span
               key={tag}
-              className="prestige-glass-chip inline-flex min-h-9 items-center gap-1.5 rounded-[0.85rem] px-2.5 py-1 text-[0.58rem] font-medium leading-4 text-prestige-ink sm:text-[0.62rem]"
+              className=" liquid-fixed inline-flex min-h-9 items-center gap-1.5 rounded-[0.85rem] px-2.5 py-1 text-[0.58rem] font-medium leading-4 text-prestige-ink sm:text-[0.62rem]"
             >
               <Check size={11} className="relative z-[1] shrink-0 text-prestige-gold" />
               <span className="relative z-[1] min-w-0 text-pretty">{tag}</span>
@@ -218,7 +218,7 @@ export default function ServicesCardStack({
   return (
     <div
       id="services"
-      className="relative flex min-h-[760px] w-full flex-col items-center justify-center overflow-hidden   bg-transparent px-4 py-16 sm:min-h-[860px] sm:px-6 md:min-h-[900px] md:px-8 md:py-24"
+      className="relative flex min-h-[760px] w-full flex-col items-center justify-center overflow-hidden   bg-prestige-canvas px-4 py-16 sm:min-h-[860px] sm:px-6 md:min-h-[900px] md:px-8 md:py-24"
     >
       <div className="pointer-events-none absolute left-0 top-8 h-[32rem] w-[16rem] rounded-r-full bg-[radial-gradient(ellipse_at_left,rgba(255,91,25,0.24),transparent_68%)] blur-3xl" />
       <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_86%,transparent)]" />
@@ -244,6 +244,7 @@ export default function ServicesCardStack({
               index={index}
               isAnimating={isAnimating}
               onViewPlans={onViewPlans}
+
             />
           ))}
         </AnimatePresence>
@@ -252,19 +253,19 @@ export default function ServicesCardStack({
       <div className="relative z-[2] -mt-px flex w-full max-w-[38rem] items-center justify-center gap-3 border-t border-white/10 py-5 sm:gap-4">
         <button
           onClick={handlePrev}
-          className="prestige-glass-button flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-[1.05rem] text-prestige-muted transition-all hover:text-prestige-ink active:scale-[0.98]"
+          className="glass-gold flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-[1.05rem] text-prestige-muted transition-all hover:text-prestige-ink active:scale-[0.98]"
           aria-label="Previous service"
         >
           <ChevronLeft size={16} className="relative z-[1]" strokeWidth={2.2} />
         </button>
 
-        <span className="min-w-0 flex-1 text-center font-mono text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-prestige-muted sm:min-w-[180px] sm:flex-none sm:text-[0.62rem] sm:tracking-[0.22em]">
+        <span className="min-w-0 p-2 border-px border-orange-600 rounded-xl flex-1 text-center shadow-[0px_3px_10px_rgba(255,60,0,0.64),inset_0_1px_0_rgba(255,255,255,0.1)] font-mono text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-prestige-muted sm:min-w-[180px] sm:flex-none sm:text-[0.62rem] sm:tracking-[0.22em]">
           {currentLabel}
         </span>
 
         <button
           onClick={handleNext}
-          className="prestige-glass-button flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-[1.05rem] text-prestige-muted transition-all hover:text-prestige-ink active:scale-[0.98]"
+          className="glass-gold flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-[1.05rem] text-prestige-muted transition-all hover:text-prestige-ink active:scale-[0.98]"
           aria-label="Next service"
         >
           <ChevronRight size={16} className="relative z-[1]" strokeWidth={2.2} />

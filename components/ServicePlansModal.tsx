@@ -412,7 +412,7 @@ export default function ServicePlansModal({ serviceNumber, onClose }: ServicePla
 
                     {/* CTA */}
                     <a
-                      href="#contact"
+                      href="/contact"
                       onClick={onClose}
                       className={`mt-auto inline-flex w-full items-center justify-center gap-2 rounded-[1rem] px-5 py-3.5 font-mono text-[0.65rem] uppercase tracking-[0.22em] transition-all duration-250 active:scale-95 ${
                         plan.highlight

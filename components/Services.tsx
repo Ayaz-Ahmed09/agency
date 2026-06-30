@@ -133,7 +133,7 @@ export default function Services({ onViewPlans }: ServicesProps) {
                   </div>
                 </div>
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="prestige-glass-button inline-flex h-11 w-fit items-center gap-3 rounded-[1.05rem] px-4 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-prestige-muted md:justify-self-end"
                 >
                   <span className="relative z-[1]">discover</span>

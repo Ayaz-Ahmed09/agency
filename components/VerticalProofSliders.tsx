@@ -42,7 +42,7 @@ export default function VerticalProofSliders() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
             className="mt-7 inline-flex items-center gap-3 border border-white/12 px-5 py-3 font-mono text-xs uppercase tracking-[0.22em] text-prestige-muted transition duration-300 hover:border-prestige-gold hover:text-prestige-ink"
           >
             plan growth

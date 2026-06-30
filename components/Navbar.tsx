@@ -19,14 +19,14 @@ import {
 import BrandMark from "@/components/BrandMark";
 
 const navLinks = [
-  { id: "hero", name: "Hero", href: "#hero", icon: Home },
-  { id: "services", name: "Services", href: "#services", icon: Briefcase },
-  { id: "about", name: "About", href: "#about", icon: Globe2 },
-  { id: "automations", name: "Automations", href: "#automations", icon: Bot },
-  { id: "case-studies", name: "Case studies", href: "#case-studies", icon: FolderOpen },
-  { id: "process", name: "Process", href: "#process", icon: GitBranch },
-  { id: "faq", name: "FAQ", href: "#faq", icon: HelpCircle },
-  { id: "contact", name: "Contact", href: "#contact", icon: Mail },
+  { id: "hero", name: "Hero", href: "/#hero", icon: Home },
+  { id: "services", name: "Services", href: "/#services", icon: Briefcase },
+  { id: "about", name: "About", href: "/#about", icon: Globe2 },
+  { id: "automations", name: "Automations", href: "/#automations", icon: Bot },
+  { id: "case-studies", name: "Templates", href: "/#case-studies", icon: FolderOpen },
+  { id: "process", name: "Process", href: "/#process", icon: GitBranch },
+  { id: "faq", name: "FAQ", href: "/#faq", icon: HelpCircle },
+  { id: "contact", name: "Contact", href: "/contact", icon: Mail },
   { id: "admin", name: "Cockpit", href: "/admin", icon: LayoutDashboard },
 ] as const;
 
@@ -149,7 +149,7 @@ export default function Navbar({ activeId = "hero", visible = true }: NavbarProp
           >
             <div className="liquid-fixed max-h-[calc(100dvh-5.25rem)] overflow-y-auto rounded-[1.35rem] p-3">
               <Link
-                href="#hero"
+                href="/"
                 aria-label="Presitgious Tech home"
                 className="mb-2 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-3 text-prestige-ink transition duration-200 hover:border-white/16"
                 onClick={() => setIsOpen(false)}
@@ -208,7 +208,7 @@ export default function Navbar({ activeId = "hero", visible = true }: NavbarProp
           >
             <div className="liquid-fixed flex flex-col items-center gap-3 rounded-[1.75rem] px-2 py-3">
               <Link
-                href="#hero"
+                href="/"
                 aria-label="Presitgious Tech home"
                 className="mb-1 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-prestige-ink transition duration-200 hover:border-white/16"
                 onClick={() => setIsOpen(false)}

@@ -13,7 +13,6 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import VerticalProofSliders from "@/components/VerticalProofSliders";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ServicePlansModal from "@/components/ServicePlansModal";
 import QueryBot from "@/components/QueryBot";
@@ -29,7 +28,6 @@ const panelOrder = [
   "proof",
   "testimonials",
   "faq",
-  "contact",
 ] as const;
 
 type PanelId = (typeof panelOrder)[number];
@@ -129,9 +127,9 @@ export default function Home() {
         <AutomationShowcase />
       </PageSection>
 
-      <PageSection id="case-studies">
+      {/* <PageSection id="case-studies">
         <CaseStudies />
-      </PageSection>
+      </PageSection> */}
 
       <PageSection id="process">
         <ProcessTimeline />
@@ -149,12 +147,9 @@ export default function Home() {
         <FAQ />
       </PageSection>
 
-      <PageSection id="contact">
-        <div className="flex flex-col bg-prestige-canvas">
-          <Contact />
-          <Footer />
-        </div>
-      </PageSection>
+      <div className="flex flex-col bg-prestige-canvas">
+        <Footer />
+      </div>
 
       <AnimatePresence>
         {openPlansFor !== null && (

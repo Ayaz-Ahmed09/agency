@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import BrandMark from "@/components/BrandMark";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -22,11 +24,16 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 px-4 md:px-8 bg-prestige-canvas border-t border-white/5">
-      
-      {/* Background orbs */}
-      <div className="absolute top-1/4 left-1/3 w-[30rem] h-[30rem] rounded-full bg-prestige-gold/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[35rem] h-[35rem] rounded-full bg-prestige-gold-deep/10 blur-[130px] pointer-events-none" />
+    <section id="contact" className="relative overflow-hidden bg-prestige-canvas px-4 py-24 md:px-8 md:py-32">
+      <Image
+        src="/brand/logo-construction-panel.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="pointer-events-none select-none object-cover opacity-[0.18] mix-blend-screen"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,90,31,0.15),transparent_28rem),linear-gradient(180deg,rgba(11,7,7,0.78),rgba(11,7,7,0.94)_52%,#0b0707)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 items-start relative z-10">
         
@@ -88,11 +95,36 @@ export default function Contact() {
               </div>
             </div>
           </div>
+
+          <div className="glass-gold overflow-hidden rounded-[1.65rem] p-2">
+            <div className="relative z-[1] overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0b0707]">
+              <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
+                <BrandMark className="h-9 w-9" />
+                <div>
+                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-prestige-gold">
+                    business card
+                  </div>
+                  <div className="mt-1 text-xs text-prestige-muted">
+                    Prestige in motion.
+                  </div>
+                </div>
+              </div>
+              <div className="relative aspect-[1.18/1] overflow-hidden">
+                <Image
+                  src="/brand/business-card-panel.jpg"
+                  alt="Presitgious Tech black and gold business card"
+                  fill
+                  sizes="(max-width: 1024px) 92vw, 26rem"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Dynamic Intake Form - Double Bezel Layout */}
-        <div className="p-1 rounded-[2.5rem] bg-[#151010]/30 border border-white/10 hover:border-prestige-gold/20 transition-all duration-500 w-full max-w-2xl">
-          <div className="border border-white/5 rounded-[calc(2.5rem-0.375rem)] bg-gradient-to-b from-[#181211]/95 to-[#0b0808]/98 p-6 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+        <div className="w-full max-w-2xl rounded-[2.5rem] border border-white/10 bg-[#151010]/54 p-1 shadow-[0_30px_100px_rgba(0,0,0,0.38)] transition-all duration-500 hover:border-prestige-gold/20">
+          <div className="rounded-[calc(2.5rem-0.375rem)] border border-white/5 bg-gradient-to-b from-[#181211]/96 to-[#0b0808]/98 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] md:p-10">
             
             {submitted ? (
               <motion.div

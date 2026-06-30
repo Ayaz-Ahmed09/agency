@@ -364,16 +364,16 @@ export function CinematicFooter({ brandWord = "PRETIGIOUS", scrollRootSelector }
               </div>
 
               <div className="mt-1 flex w-full flex-wrap justify-center gap-2.5 sm:gap-3 md:gap-4">
-                <MagneticButton as="a" href="#services" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
+                <MagneticButton as="a" href="/#services" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
                   Services
                 </MagneticButton>
-                <MagneticButton as="a" href="#case-studies" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
+                <MagneticButton as="a" href="/#case-studies" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
                   Case studies
                 </MagneticButton>
-                <MagneticButton as="a" href="#process" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
+                <MagneticButton as="a" href="/#process" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
                   Process
                 </MagneticButton>
-                <MagneticButton as="a" href="#contact" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
+                <MagneticButton as="a" href="/contact" className="footer-glass-pill rounded-full px-5 py-3 text-xs font-medium text-prestige-muted hover:text-prestige-ink md:text-sm">
                   Contact
                 </MagneticButton>
               </div>

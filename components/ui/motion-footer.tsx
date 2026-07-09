@@ -99,9 +99,9 @@ const STYLES = `
   line-height: 0.72;
   font-weight: 900;
   letter-spacing: -0.085em;
-  color: rgb(255 255 255 / 0.075);
-  -webkit-text-stroke: 1px rgb(255 255 255 / 0.18);
-  text-shadow: 0 0 34px rgb(255 255 255 / 0.055);
+  color: rgb(255 255 255 / 0.15);
+  -webkit-text-stroke: 1.2px rgb(255 255 255 / 0.32);
+  text-shadow: 0 0 34px rgb(255 255 255 / 0.1);
 }
 
 @media (max-width: 640px) {
@@ -385,13 +385,6 @@ export function CinematicFooter({ brandWord = "PRETIGIOUS", scrollRootSelector }
               © 2026 Presitgious Tech. All rights reserved.
             </div>
 
-            <div className="footer-glass-pill order-1 flex cursor-default items-center gap-2 rounded-full px-5 py-3 md:order-2">
-              <span className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.22em] text-prestige-muted md:text-xs">Crafted with</span>
-              <Heart className="h-4 w-4 animate-footer-heartbeat fill-prestige-gold text-prestige-gold" />
-              <span className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.22em] text-prestige-muted md:text-xs">by</span>
-              <span className="ml-1 text-xs font-black text-prestige-ink md:text-sm">Presitgious</span>
-              <Sparkles className="h-3.5 w-3.5 text-prestige-gold" />
-            </div>
 
             <div className="order-3 flex items-center gap-3">
               <div className="hidden items-center gap-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-prestige-muted sm:flex">

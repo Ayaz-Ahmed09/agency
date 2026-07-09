@@ -16,6 +16,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ServicePlansModal from "@/components/ServicePlansModal";
 import QueryBot from "@/components/QueryBot";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const panelOrder = [
   "hero",
@@ -49,6 +50,8 @@ export default function Home() {
   const viewportRef = useRef<HTMLElement | null>(null);
   const [activePanel, setActivePanel] = useState<PanelId>("hero");
   const [openPlansFor, setOpenPlansFor] = useState<string | null>(null);
+
+  useScrollAnimations(viewportRef);
 
 
   const syncActivePanel = useEffectEvent(() => {

@@ -99,16 +99,16 @@ const STYLES = `
   line-height: 0.72;
   font-weight: 900;
   letter-spacing: -0.085em;
-  color: rgb(255 255 255 / 0.15);
-  -webkit-text-stroke: 1.2px rgb(255 255 255 / 0.32);
-  text-shadow: 0 0 34px rgb(255 255 255 / 0.1);
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255 255 255 / 0.35);
 }
 
 @media (max-width: 640px) {
   .footer-giant-bg-text {
     font-size: clamp(2.7rem, 14.5vw, 4.8rem);
     letter-spacing: -0.075em;
-    -webkit-text-stroke-width: 0.7px;
+    -webkit-text-stroke-width: 1.2px;
+    bottom: 3.5rem;
   }
 
   .animate-footer-breathe {
@@ -126,7 +126,6 @@ const STYLES = `
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0px 0px 22px color-mix(in oklch, var(--footer-gold) 20%, transparent));
 }
 `;
 
@@ -234,15 +233,8 @@ export function CinematicFooter({ brandWord = "PRETIGIOUS", scrollRootSelector }
       : undefined;
 
     const ctx = gsap.context(() => {
-      // On mobile skip scrub animations — just fade in
-      if (isMobile) {
-        gsap.set([giantTextRef.current, headingRef.current, linksRef.current], {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-        });
-        return;
-      }
+      // On mobile skip all GSAP scroll animations — they cause lag on low-end devices
+      if (isMobile) return;
 
       gsap.fromTo(
         giantTextRef.current,
@@ -313,9 +305,7 @@ export function CinematicFooter({ brandWord = "PRETIGIOUS", scrollRootSelector }
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
         <footer className="absolute bottom-0 left-0 flex h-full min-h-0 w-full flex-col justify-between overflow-hidden bg-[#070303] text-prestige-ink cinematic-footer-wrapper">
-          <div className="footer-aurora pointer-events-none absolute left-1/2 top-1/2 z-0 h-[62vh] w-[82vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[82px]" />
           <div className="footer-bg-grid pointer-events-none absolute inset-0 z-0" />
-          <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,90,31,0.18),transparent_34rem),linear-gradient(180deg,rgba(14,6,5,0.55),rgba(7,3,3,1)_72%)]" />
 
           <div
             ref={giantTextRef}
@@ -382,7 +372,7 @@ export function CinematicFooter({ brandWord = "PRETIGIOUS", scrollRootSelector }
 
           <div className="relative z-20 flex w-full flex-col items-center justify-between gap-4 px-5 pb-5 md:flex-row md:px-10 lg:px-12">
             <div className="order-2 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-prestige-muted md:order-1 md:text-xs">
-              © 2026 Presitgious Tech. All rights reserved.
+              © 2026 Prestigious Tech. All rights reserved.
             </div>
 
 

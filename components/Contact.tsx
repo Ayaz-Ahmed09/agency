@@ -112,7 +112,7 @@ export default function Contact() {
               <div className="relative aspect-[1.18/1] overflow-hidden">
                 <Image
                   src="/brand/business-card-panel.jpg"
-                  alt="Presitgious Tech black and gold business card"
+                  alt="Prestigious Tech black and gold business card"
                   fill
                   sizes="(max-width: 1024px) 92vw, 26rem"
                   className="object-cover"

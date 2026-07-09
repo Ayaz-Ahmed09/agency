@@ -53,6 +53,7 @@ export default function VerticalProofSliders() {
         <div className="grid gap-4 sm:grid-cols-2">
           {adMetrics.map((metric, index) => (
             <motion.article
+              data-proof-card
               key={metric.label}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}

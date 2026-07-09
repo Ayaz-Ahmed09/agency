@@ -97,7 +97,7 @@ export default function DottedMapAbout({ className }: { className?: string }) {
                     </h2>
 
                     <p className="mt-6 max-w-xl text-sm leading-7 text-prestige-muted">
-                        Presitgious Tech supports brands across North America, Europe, the Gulf, and APAC with web, automation, marketing, and social content systems.
+                        Prestigious Tech supports brands across North America, Europe, the Gulf, and APAC with web, automation, marketing, and social content systems.
                     </p>
 
                     <div className="mt-8 grid gap-2 sm:grid-cols-3">
@@ -144,7 +144,7 @@ export default function DottedMapAbout({ className }: { className?: string }) {
                         <div className="relative mx-auto aspect-[1.35/1] w-full overflow-hidden p-2 sm:aspect-[2/1] sm:p-4">
                             <img
                                 src={mapSrc}
-                                alt="Dotted world map showing Presitgious Tech client coverage"
+                                alt="Dotted world map showing Prestigious Tech client coverage"
                                 className="h-full w-full select-none object-contain opacity-90"
                                 loading="lazy"
                                 decoding="async"
@@ -153,6 +153,7 @@ export default function DottedMapAbout({ className }: { className?: string }) {
                             {markers.map((marker) => (
                                 <div
                                     key={marker.city}
+                                    data-map-pin
                                     className="absolute -translate-x-1/2 -translate-y-1/2"
                                     style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
                                 >

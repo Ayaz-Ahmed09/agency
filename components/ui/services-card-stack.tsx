@@ -148,6 +148,7 @@ function AnimatedServiceCard({
   return (
     <motion.div
       key={card.id}
+      data-service-card
       initial={initialAnim}
       animate={{ y, scale }}
       exit={exitAnim}

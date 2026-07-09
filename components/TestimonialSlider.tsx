@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Presitgious Tech completely rebuilt our headless e-commerce frontend. The Next.js architecture is incredibly fast, and our store conversion rate surged from 2.6% to 4.2% within the first month. They are engineers with exceptional design taste.",
+    quote: "Prestigious Tech completely rebuilt our headless e-commerce frontend. The Next.js architecture is incredibly fast, and our store conversion rate surged from 2.6% to 4.2% within the first month. They are engineers with exceptional design taste.",
     author: "Sarah Jenkins",
     role: "Founder, Zenvia Store",
     project: "Headless E-Commerce Overhaul",
@@ -80,6 +80,7 @@ export default function TestimonialSlider() {
             <div className="relative flex-1 flex items-center">
               <AnimatePresence mode="wait">
                 <motion.div
+                  data-testimonial
                   key={activeIdx}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}

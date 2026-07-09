@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Presitgious Tech | Web, AI automation, marketing.",
+  title: "Prestigious Tech | Web, AI automation, marketing.",
   description:
     "Premium web development, custom AI automation, digital marketing, and social media handling for brands that need sharper digital systems.",
   openGraph: {
-    title: "Presitgious Tech",
+    title: "Prestigious Tech",
     description: "Premium digital systems for brands that need trust, speed, and growth.",
     type: "website",
   },

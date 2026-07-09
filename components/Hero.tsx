@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
-
-const agencyWords = "Presitgious Tech".split(" ");
+import CurvedLoop from "./CurvedLoop";
+import TextPressure from "./TextPressure";
 
 const reviewers = [
   { name: "RZ", tone: "from-[#ff9f6e] to-[#6d120d]" },
@@ -15,26 +15,16 @@ const reviewers = [
 
 // Variation 1: Original with dual floating paths
 function Variation1() {
-  const words = agencyWords;
-
-  const paths = Array.from({ length: 36 }, (_, i) => ({
+  const paths = Array.from({ length: 20 }, (_, i) => ({
     id: i,
-    d: `M-${380 - i * 5} -${189 + i * 6}C-${380 - i * 5} -${189 + i * 6} -${
-      312 - i * 5
-    } ${216 - i * 6} ${152 - i * 5} ${343 - i * 6}C${616 - i * 5} ${
-      470 - i * 6
-    } ${684 - i * 5} ${875 - i * 6} ${684 - i * 5} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
+    d: `M-${480 - i * 15} -${189 + i * 20}C-${200} ${200} ${500} ${500} ${600} ${1000}`,
+    width: 0.005 + i * 0.02,
   }));
 
-  const pathsReverse = Array.from({ length: 36 }, (_, i) => ({
-    id: i + 36,
-    d: `M-${380 - i * -5} -${189 + i * 6}C-${380 - i * -5} -${189 + i * 6} -${
-      312 - i * -5
-    } ${216 - i * 6} ${152 - i * -5} ${343 - i * 6}C${616 - i * -5} ${
-      470 - i * 6
-    } ${684 - i * -5} ${875 - i * 6} ${684 - i * -5} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
+  const pathsReverse = Array.from({ length: 30 }, (_, i) => ({
+    id: i + 32,
+    d: `M${580 - i * 50} -${189 + i * 50}C${100} ${200} ${300} ${400} ${600} ${800}`,
+    width: 1.25 + i * 0.01,
   }));
 
   return (
@@ -42,7 +32,7 @@ function Variation1() {
       <div className="absolute inset-0 pointer-events-none">
         <svg
           className="h-full w-full text-orange-500"
-          viewBox="0 0 696 316"
+          viewBox="20 0 406 306"
           fill="none"
         >
           {paths.map((path) => (
@@ -51,15 +41,15 @@ function Variation1() {
               d={path.d}
               stroke="currentColor"
               strokeWidth={path.width}
-              strokeOpacity={0.1 + path.id * 0.03}
-              initial={{ pathLength: 0.3, opacity: 0.6 }}
+              strokeOpacity={0.01 + path.id * 0.06}
+              initial={{ pathLength: 1, opacity: 0.8 }}
               animate={{
-                pathLength: 1,
-                opacity: [0.3, 0.6, 0.3],
-                pathOffset: [0, 1, 0],
+                pathLength: 3,
+                opacity: [0.2, 1, 0.1],
+                pathOffset: [0., 1, 0],
               }}
               transition={{
-                duration: 20 + Math.random() * 10,
+                duration: 40 + Math.random() * 40,
                 repeat: Infinity,
                 ease: "linear",
               }}
@@ -71,10 +61,10 @@ function Variation1() {
               d={path.d}
               stroke="currentColor"
               strokeWidth={path.width}
-              strokeOpacity={0.1 + (path.id - 36) * 0.03}
+              strokeOpacity={0.1 + (path.id - 6) * 0.08}
               initial={{ pathLength: 0.3, opacity: 0.6 }}
               animate={{
-                pathLength: 1,
+                pathLength: 3,
                 opacity: [0.3, 0.6, 0.3],
                 pathOffset: [0, 1, 0],
               }}
@@ -120,28 +110,20 @@ function Variation1() {
             </div>
           </div>
 
-          <h1 className="mb-8 text-4xl font-bold tracking-tighter text-prestige-ink sm:text-5xl md:text-6xl">
-            {words.map((word, wordIndex) => (
-              <span key={wordIndex} className="mr-4 inline-block last:mr-0">
-                {word.split("").map((letter, letterIndex) => (
-                  <motion.span
-                    key={`${wordIndex}-${letterIndex}`}
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      delay: wordIndex * 0.1 + letterIndex * 0.03,
-                      type: "spring",
-                      stiffness: 150,
-                      damping: 25,
-                    }}
-                    className="inline-block text-prestige-ink"
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
-          </h1>
+          <div className="mb-8 w-full" style={{ height: 'clamp(60px, 12vw, 120px)' }}>
+            <TextPressure
+              text="Prestigious Tech"
+              flex={true}
+              alpha={false}
+              stroke={false}
+              width={true}
+              weight={true}
+              italic={true}
+              scale={true}
+              textColor="#f5f1ea"
+              minFontSize={36}
+            />
+          </div>
 
           <div className="group relative w-full max-w-[21rem] sm:w-auto sm:max-w-none">
             <Link
@@ -149,17 +131,28 @@ function Variation1() {
               className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-[1.15rem] border border-prestige-gold/65 bg-prestige-gold px-5 py-4 text-center font-mono text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#170705] shadow-[0_18px_50px_rgba(255,90,31,0.22),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all duration-300 hover:border-[#ff9a66] hover:bg-[#ff7840] active:translate-y-px sm:min-h-16 sm:w-auto sm:px-7 sm:text-xs sm:tracking-[0.22em]"
               aria-label="Explore services"
             >
-              <span className="whitespace-nowrap">
+              <span className="whitespace-nowrap text-white">
                 Explore services
               </span>
               <ArrowRight
                 size={16}
                 strokeWidth={2.2}
-                className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                color="white"
+                className="shrink-0 transition-transform duration-300 group-hover:translate-x-1 "
               />
             </Link>
           </div>
+
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 lg:top-0 top-[70%] w-full pointer-events-none translate-y-[30%] sm:translate-y-[20%] md:translate-y-0">
+        <CurvedLoop
+          marqueeText="✦ AI Automation ✦ Web Development ✦ Digital Marketing ✦"
+          speed={1.5}
+          curveAmount={300}
+          direction="left"
+          interactive={true} className={undefined}        />
       </div>
     </div>
   );

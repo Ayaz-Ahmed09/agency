@@ -67,6 +67,7 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
+                data-faq-item
                 className="rounded-2xl bg-[#151010]/20 border border-white/5 hover:border-prestige-gold/20 overflow-hidden transition-all duration-300"
               >
                 {/* Accordion Trigger */}

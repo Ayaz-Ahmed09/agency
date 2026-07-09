@@ -7,9 +7,9 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact | Presitgious Tech",
+  title: "Contact | Prestigious Tech",
   description:
-    "Start a Presitgious Tech project inquiry for websites, automation systems, growth funnels, and digital operations.",
+    "Start a Prestigious Tech project inquiry for websites, automation systems, growth funnels, and digital operations.",
 };
 
 export default function ContactPage() {
@@ -19,12 +19,12 @@ export default function ContactPage() {
         <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-3 rounded-[1.35rem] border border-white/10 bg-[#0b0707]/82 px-3 shadow-[0_18px_60px_rgba(0,0,0,0.36)] backdrop-blur-xl sm:px-4">
           <Link
             href="/"
-            aria-label="Presitgious Tech home"
+            aria-label="Prestigious Tech home"
             className="flex min-w-0 items-center gap-3 rounded-[1rem] px-1 py-1 text-prestige-ink transition duration-300 hover:text-prestige-gold"
           >
             <BrandMark className="h-10 w-10" />
             <span className="hidden font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] sm:block">
-              Presitgious Tech
+              Prestigious Tech
             </span>
           </Link>
 

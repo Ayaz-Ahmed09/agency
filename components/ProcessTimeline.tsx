@@ -62,6 +62,7 @@ export default function ProcessTimeline() {
             return (
               <motion.div
                 key={step.phase}
+                data-process-step
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-10%" }}

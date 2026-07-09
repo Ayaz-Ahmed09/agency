@@ -60,7 +60,7 @@ export default function Services({ onViewPlans }: ServicesProps) {
             <div className="relative aspect-[4/3] overflow-hidden border border-white/10 bg-black">
               <Image
                 src="/Lamp.jpeg"
-                alt="Warm studio light shaping the Presitgious Tech service system"
+                alt="Warm studio light shaping the Prestigious Tech service system"
                 fill
                 sizes="(max-width: 1024px) 92vw, 32vw"
                 className="object-cover opacity-70 mix-blend-screen"

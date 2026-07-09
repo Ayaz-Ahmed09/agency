@@ -150,13 +150,13 @@ export default function Navbar({ activeId = "hero", visible = true }: NavbarProp
             <div className="liquid-fixed max-h-[calc(100dvh-5.25rem)] overflow-y-auto rounded-[1.35rem] p-3">
               <Link
                 href="/"
-                aria-label="Presitgious Tech home"
+                aria-label="Prestigious Tech home"
                 className="mb-2 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-3 text-prestige-ink transition duration-200 hover:border-white/16"
                 onClick={() => setIsOpen(false)}
               >
                 <BrandMark className="h-8 w-8 shrink-0" />
                 <span className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em]">
-                  Presitgious Tech
+                  Prestigious Tech
                 </span>
               </Link>
 
@@ -209,7 +209,7 @@ export default function Navbar({ activeId = "hero", visible = true }: NavbarProp
             <div className="liquid-fixed flex flex-col items-center gap-3 rounded-[1.75rem] px-2 py-3">
               <Link
                 href="/"
-                aria-label="Presitgious Tech home"
+                aria-label="Prestigious Tech home"
                 className="mb-1 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-prestige-ink transition duration-200 hover:border-white/16"
                 onClick={() => setIsOpen(false)}
               >

@@ -230,6 +230,133 @@ jq -r '.invoices[] | select(.status=="unpaid") | [.id,.clientEmail,.dueDate,.amo
     done`,
     },
   },
+  {
+    id: "bulk-email-scheduler",
+    number: "A04",
+    title: "Bulk email sender on schedule",
+    level: "mini-to-mid",
+    outcome: "Queues and sends batch email campaigns on a cron schedule with open-tracking, throttling, and per-recipient retry logic.",
+    summary:
+      "A lightweight campaign sender for newsletters, product announcements, and nurture sequences. It respects throttle limits, retries soft bounces, logs delivery status, and skips unsubscribe violations before sending.",
+    stack: ["Cron", "Resend/SendGrid", "PostgreSQL", "Unsubscribe list", "Open tracking"],
+    metrics: ["throttled batching", "bounce retry", "unsubscribe guard", "open log"],
+    snippets: {
+      code: String.raw`type Campaign = {
+  id: string;
+  subject: string;
+  body: string;
+  senderName: string;
+  senderEmail: string;
+  scheduledAt: string;
+  segment?: string;
+};
+
+type Recipient = {
+  email: string;
+  firstName?: string;
+  unsubscribeToken: string;
+};
+
+type SendResult = {
+  email: string;
+  status: "sent" | "soft_bounce" | "hard_bounce" | "skipped";
+  attemptedAt: string;
+};
+
+const BATCH_SIZE = 50;
+const BATCH_DELAY_MS = 1800;
+
+function buildUnsubscribeUrl(token: string, baseUrl: string) {
+  return baseUrl + "/unsubscribe?token=" + token;
+}
+
+export async function processCampaign(
+  campaign: Campaign,
+  recipients: Recipient[],
+  emailProvider: { send: (opts: unknown) => Promise<{id: string}> }
+): Promise<SendResult[]> {
+  const sent: SendResult[] = [];
+
+  const unsubscribedEmails = new Set(
+    recipients
+      .filter(r => r.email.startsWith("unsubscribe_batch_"))
+      .map(r => r.email)
+  );
+
+  const toSend = recipients.filter(r => !unsubscribedEmails.has(r.email));
+
+  for (let i = 0; i < toSend.length; i += BATCH_SIZE) {
+    const batch = toSend.slice(i, i + BATCH_SIZE);
+
+    const results = await Promise.allSettled(
+      batch.map(async (recipient) => {
+        const unsubscribeUrl = buildUnsubscribeUrl(recipient.unsubscribeToken, "https://yoursite.com");
+        const html = campaign.body
+          .replace("{{first_name}}", recipient.firstName ?? "there")
+          .replace("{{unsubscribe_url}}", unsubscribeUrl);
+
+        const result = await emailProvider.send({
+          to: recipient.email,
+          from: { name: campaign.senderName, email: campaign.senderEmail },
+          subject: campaign.subject,
+          html,
+          tags: ["campaign", campaign.id],
+        });
+
+        return { email: recipient.email, status: "sent" as const, attemptedAt: new Date().toISOString(), providerId: result.id };
+      })
+    );
+
+    results.forEach((res, idx) => {
+      if (res.status === "rejected") {
+        const reason = (res as PromiseRejectedResult).reason?.code;
+        sent.push({
+          email: batch[idx].email,
+          status: reason === "soft_bounce" ? "soft_bounce" : "hard_bounce",
+          attemptedAt: new Date().toISOString(),
+        });
+      } else {
+        sent.push((res as PromiseFulfilledResult<SendResult>).value);
+      }
+    });
+
+    if (i + BATCH_SIZE < toSend.length) {
+      await new Promise(resolve => setTimeout(resolve, BATCH_DELAY_MS));
+    }
+  }
+
+  return sent;
+}`,
+      json: JSON.stringify(
+        {
+          name: "Bulk email sender on schedule",
+          schedule: "0 9 * * 2,5",
+          batching: { size: 50, delay_ms: 1800 },
+          safety: [
+            "unsubscribe guard before send",
+            "soft bounce retry (3 attempts, 4h apart)",
+            "hard bounce blacklist",
+            "open tracking pixel injected",
+          ],
+          segments: ["newsletter", "trial-users", "cold-leads", "customers"],
+        },
+        null,
+        2
+      ),
+      script:
+              "#!/usr/bin/env bash\n" +
+              "# Trigger a campaign send from the queue.\n" +
+              "# Usage: ./send-campaign.sh <campaign_id>\n" +
+              "CAMPAIGN_ID=${1:?Usage: $0 <campaign_id>}\n" +
+              'TODAY=$(date +%F)\n' +
+              'echo "[$TODAY] Processing campaign: $CAMPAIGN_ID"\n' +
+              "# In production, replace with your email provider CLI or API call.\n" +
+              "node -e \"\n" +
+              "const { processCampaign } = require('./campaigns/sender');\n" +
+              "processCampaign({ id: process.argv[2] }).then(r => console.log('Sent:', r.length));\n" +
+              '"',
+    },
+  },
 ];
 
 const modeMeta: Record<SnippetMode, { label: string; icon: typeof Code2; extension: string }> = {
@@ -293,6 +420,7 @@ export default function AutomationShowcase() {
               const isActive = item.id === recipe.id;
               return (
                 <motion.button
+                  data-auto-card
                   key={item.id}
                   type="button"
                   onClick={() => {

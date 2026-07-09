@@ -29,7 +29,7 @@ const knowledge = [
   {
     match: ["web", "website", "landing", "react", "next", "ecommerce", "portal"],
     answer:
-      "For web development, Presitgious Tech builds conversion-focused websites, product portals, dashboards, storefronts, and landing pages in React and Next.js. We usually start by mapping trust points, lead paths, performance goals, and content structure.",
+      "For web development, Prestigious Tech builds conversion-focused websites, product portals, dashboards, storefronts, and landing pages in React and Next.js. We usually start by mapping trust points, lead paths, performance goals, and content structure.",
   },
   {
     match: ["ai", "automation", "bot", "workflow", "crm", "agent", "n8n", "make"],
@@ -154,7 +154,7 @@ export default function QueryBot() {
                   <Bot size={18} strokeWidth={1.8} />
                 </span>
                 <div>
-                  <h2 className="text-sm font-semibold tracking-[-0.02em] text-prestige-ink">Presitgious query bot</h2>
+                  <h2 className="text-sm font-semibold tracking-[-0.02em] text-prestige-ink">Prestigious query bot</h2>
                   <p className="mt-0.5 flex items-center gap-1.5 font-mono text-[0.58rem] uppercase tracking-[0.18em] text-prestige-muted">
                     <CheckCircle2 size={11} className="text-prestige-gold" />
                     {status}
@@ -176,7 +176,7 @@ export default function QueryBot() {
                 <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-4">
                   <MessageSquareText size={18} className="text-prestige-gold" />
                   <p className="mt-3 text-sm leading-6 text-prestige-muted">
-                    Choose a prompt or type your own question. Answers are instant and scoped to Presitgious Tech services.
+                    Choose a prompt or type your own question. Answers are instant and scoped to Prestigious Tech services.
                   </p>
                 </div>
               )}
@@ -223,7 +223,7 @@ export default function QueryBot() {
               </div>
               <form onSubmit={handleSubmit} className="space-y-2">
                 <label htmlFor="query-bot-input" className="sr-only">
-                  Ask Presitgious Tech a question
+                  Ask Prestigious Tech a question
                 </label>
                 <div className="flex items-center gap-2 rounded-full border border-white/10 bg-[#080505] p-1.5">
                   <input

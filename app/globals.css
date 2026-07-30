@@ -307,18 +307,21 @@ body {
   filter: saturate(0.8) contrast(1.1);
 }
 
-.stack-stage {
-  scrollbar-width: auto;
+.card-stage {
+  touch-action: pan-y;
 }
 
-.stack-stage::-webkit-scrollbar {
-  display: initial;
+.card-panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #ff5a1f #090505;
 }
 
-.panel-shell {
+.card-panel-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.card-panel-shell {
   min-height: 100%;
-  display: flex;
-  align-items: center;
 }
 
 @keyframes prestige-marquee-y {

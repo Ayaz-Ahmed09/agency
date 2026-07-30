@@ -23,19 +23,24 @@ const navLinks = [
   { id: "services", name: "Services", href: "/#services", icon: Briefcase },
   { id: "about", name: "About", href: "/#about", icon: Globe2 },
   { id: "automations", name: "Automations", href: "/#automations", icon: Bot },
-  { id: "case-studies", name: "Templates", href: "/#case-studies", icon: FolderOpen },
+  // { id: "case-studies", name: "Templates", href: "/#case-studies", icon: FolderOpen },
   { id: "process", name: "Process", href: "/#process", icon: GitBranch },
   { id: "faq", name: "FAQ", href: "/#faq", icon: HelpCircle },
   { id: "contact", name: "Contact", href: "/contact", icon: Mail },
-  { id: "admin", name: "Cockpit", href: "/admin", icon: LayoutDashboard },
+  // { id: "admin", name: "Cockpit", href: "/admin", icon: LayoutDashboard },
 ] as const;
+
+// These ids live inside the home page's card stack — clicking them should jump
+// the stage to that card instead of following the href as a real navigation.
+const IN_PAGE_IDS = new Set(["hero", "services", "about", "automations", "process", "faq"]);
 
 type NavbarProps = {
   activeId?: string;
   visible?: boolean;
+  onNavigate?: (id: string) => void;
 };
 
-export default function Navbar({ activeId = "hero", visible = true }: NavbarProps) {
+export default function Navbar({ activeId = "hero", visible = true, onNavigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [autoHidden, setAutoHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -170,12 +175,17 @@ export default function Navbar({ activeId = "hero", visible = true }: NavbarProp
                       key={link.id}
                       href={link.href}
                       aria-current={isActive ? "page" : undefined}
-                      className={`flex min-h-12 items-center gap-3 rounded-2xl border px-3 py-3 transition duration-200 ${
-                        isActive
+                      className={`flex min-h-12 items-center gap-3 rounded-2xl border px-3 py-3 transition duration-200 ${isActive
                           ? "border-prestige-gold/40 bg-prestige-gold/12 text-prestige-gold"
                           : "border-white/8 bg-white/[0.02] text-prestige-muted hover:border-white/16 hover:text-prestige-ink"
-                      }`}
-                      onClick={() => setIsOpen(false)}
+                        }`}
+                      onClick={(event) => {
+                        if (IN_PAGE_IDS.has(link.id)) {
+                          event.preventDefault();
+                          onNavigate?.(link.id);
+                        }
+                        setIsOpen(false);
+                      }}
                     >
                       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.025]">
                         <Icon size={17} strokeWidth={1.8} />
@@ -226,12 +236,17 @@ export default function Navbar({ activeId = "hero", visible = true }: NavbarProp
                     aria-label={link.name}
                     aria-current={isActive ? "page" : undefined}
                     title={link.name}
-                    className={`group relative flex h-11 w-11 items-center justify-center rounded-2xl border transition duration-200 ${
-                      isActive
+                    className={`group relative flex h-11 w-11 items-center justify-center rounded-2xl border transition duration-200 ${isActive
                         ? "border-prestige-gold/40 bg-prestige-gold/12 text-prestige-gold"
                         : "border-white/8 bg-white/[0.02] text-prestige-muted hover:border-white/16 hover:text-prestige-ink"
-                    }`}
-                    onClick={() => setIsOpen(false)}
+                      }`}
+                    onClick={(event) => {
+                      if (IN_PAGE_IDS.has(link.id)) {
+                        event.preventDefault();
+                        onNavigate?.(link.id);
+                      }
+                      setIsOpen(false);
+                    }}
                   >
                     <Icon size={17} strokeWidth={1.8} />
                     <span className="pointer-events-none absolute left-[calc(100%+0.8rem)] top-1/2 hidden -translate-y-1/2 rounded-full border border-white/10 bg-[#120c0b]/92 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-prestige-ink opacity-0 transition duration-200 group-hover:opacity-100 lg:block">

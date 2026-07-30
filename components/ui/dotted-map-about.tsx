@@ -177,7 +177,7 @@ export default function DottedMapAbout({ className }: { className?: string }) {
 
                         <div className="grid border-t border-white/10 sm:grid-cols-3">
                             {clientMarkers.slice(0, 3).map((marker) => (
-                                <div key={marker.region} className="border-b border-white/10 px-4 py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
+                                <div key={marker.city} className="border-b border-white/10 px-4 py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
                                     <div className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-prestige-gold">
                                         {marker.region}
                                     </div>
